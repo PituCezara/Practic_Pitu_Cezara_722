@@ -32,11 +32,10 @@ import static model.EreignisTyp.*;
 //                return e.getBasePoints();
 //            }
 //
-//        default:
-//            return e.getBasePoints();
+//
 //    }
 //}
-
+//la tot codu din mainsa il rescri din nou cu comentarii la fiecare linie sau bucata
 public class Main {
 
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -90,7 +89,7 @@ public class Main {
         ArrayList<RennenEreignis> ereignisse = readEventsFromJson(eventsPath);
         ArrayList<Strafe> strafen = readPenaltiesFromJson(penaltiesPath);
 
-        // EX 1
+
         System.out.println("Drivers loaded: " + fahrerListe.size());
         System.out.println("Events loaded: " + ereignisse.size());
         System.out.println("Penalties loaded: " + strafen.size());
