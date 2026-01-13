@@ -2,6 +2,7 @@ package model;
 
 import model.EreignisTyp;
 
+
 public class RennenEreignis {
     private int id;
     private int fahrerId;

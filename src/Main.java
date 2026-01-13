@@ -4,10 +4,38 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.*;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import static model.EreignisTyp.*;
+//public static int computePoints(RennenEreignis e) {
+//    switch (e.getTyp()) {
+//        case OVERTAKE:
+//            return e.getBasePoints() + 1;
+//
+//        case FASTEST_LAP:
+//            return e.getBasePoints() + 2 * (e.getLap() % 3);
+//
+//        case TRACK_LIMITS:
+//            return e.getBasePoints() - 5;
+//
+//        case COLLISION:
+//            return e.getBasePoints() - 10 - e.getLap();
+//
+//        case PIT_STOP:
+//            if (e.getLap() <= 10) {
+//                return e.getBasePoints() + 2;
+//            } else {
+//                return e.getBasePoints();
+//            }
+//
+//        default:
+//            return e.getBasePoints();
+//    }
+//}
 
 public class Main {
 
@@ -62,7 +90,7 @@ public class Main {
         ArrayList<RennenEreignis> ereignisse = readEventsFromJson(eventsPath);
         ArrayList<Strafe> strafen = readPenaltiesFromJson(penaltiesPath);
 
-        // EX 1 (cum ai avut)
+        // EX 1
         System.out.println("Drivers loaded: " + fahrerListe.size());
         System.out.println("Events loaded: " + ereignisse.size());
         System.out.println("Penalties loaded: " + strafen.size());
@@ -88,7 +116,7 @@ public class Main {
 
         // ex3
         fahrerListe.sort((f1, f2) -> {
-            // 1) skillLevel descrescator
+
             int cmpSkill = Integer.compare(f2.getSkillLevel(), f1.getSkillLevel());
             if (cmpSkill != 0) return cmpSkill;
 
@@ -96,13 +124,13 @@ public class Main {
             return f1.getName().compareTo(f2.getName());
         });
 
-        // afisare lista sortata
+
         for (Fahrer f : fahrerListe) {
             System.out.println(f);
         }
-
+        System.out.println("-------------------------------------------------");
     //ex 4
-        // EX 4
+
         File outFile = new File("drivers_sorted.txt");
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
@@ -111,6 +139,24 @@ public class Main {
                 bw.newLine();
             }
         }
+        System.out.println("-------------------------------------------------");
+      //ex5
+
+//        for (int i = 0; i < 5; i++) {
+//            RennenEreignis e = ereignisse.get(i);
+//            int computed = computePoints(e);
+//
+//            System.out.println(
+//                    "Event " + e.getId() +  " -> raw=" + e.getBasePoints() + " -> computed=" + computed
+//            );
+//        }
+
 
     }
-}
+
+
+    }
+
+
+
+
