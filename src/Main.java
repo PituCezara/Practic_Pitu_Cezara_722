@@ -71,6 +71,8 @@ public class Main {
             System.out.println(f);
         }
 
+
+        System.out.println("-------------------------------------------------");
         // ex2
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input team: ");
@@ -81,5 +83,25 @@ public class Main {
                 System.out.println(f);
             }
         }
+
+        System.out.println("-------------------------------------------------");
+
+        // ex3
+        fahrerListe.sort((f1, f2) -> {
+            // 1) skillLevel descrescator
+            int cmpSkill = Integer.compare(f2.getSkillLevel(), f1.getSkillLevel());
+            if (cmpSkill != 0) return cmpSkill;
+
+
+            return f1.getName().compareTo(f2.getName());
+        });
+
+        // afisare lista sortata
+        for (Fahrer f : fahrerListe) {
+            System.out.println(f);
+        }
+
+
+
     }
 }
