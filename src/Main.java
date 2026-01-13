@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.*;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -52,7 +52,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String driversPath = "drivers.json";
         String eventsPath = "events.json";
@@ -101,7 +101,16 @@ public class Main {
             System.out.println(f);
         }
 
+    //ex 4
+        // EX 4
+        File outFile = new File("drivers_sorted.txt");
 
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
+            for (Fahrer f : fahrerListe) {
+                bw.write(f.toString());
+                bw.newLine();
+            }
+        }
 
     }
 }
